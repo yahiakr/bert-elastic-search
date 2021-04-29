@@ -4,7 +4,7 @@ import Joi from "joi";
 import { BAD_REQUEST } from 'http-status-codes';
 
 module.exports = {
-  permissions: "readAny.product",
+  permissions: "public",
   validate: {},
   handler: async ({ query, user }: Request) => {
       return "a simple text!"
