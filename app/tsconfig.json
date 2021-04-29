@@ -1,0 +1,44 @@
+{
+  "ts-node": {
+    "files": true
+  },
+  "compilerOptions": {
+    "baseUrl": "./",
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "module": "commonjs",
+    "outDir": "dist",
+    "removeComments": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "paths": {
+      "@models/*": ["src/models/*"] ,
+      "@controllers/*": ["src/controllers/*"],
+      "@middlewares/*": ["src/middlewares/*"],
+      "@shared/*": ["src/shared/*"],
+      "@services/*": ["src/services/*"],
+      "@server": ["src/server"],
+      "@environments/*": ["environments/*"]
+    },
+    "types": [
+      "node",
+      "jest"
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+      "types/custom.d.ts",
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts", "environments/config.ts", 
+    "types/custom.d.ts"
+  ],
+  "exclude": [
+    "src/public/"
+  ]
+}
