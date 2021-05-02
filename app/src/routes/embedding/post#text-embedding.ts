@@ -2,8 +2,7 @@ import { Request } from 'express';
 import Error from 'http-errors';
 import Joi from "joi";
 import { BAD_REQUEST } from 'http-status-codes';
-import axios from "axios";
-import { config } from "@environments/config"
+import { bertService } from "@services/bert.service";
 
 module.exports = {
     permissions: "public",
@@ -17,7 +16,6 @@ module.exports = {
     handler: async ({ body }: Request) => {
         const { text } = body;
 
-        const response = await axios.post(`${config.bert.url}/embedding`, {context: text})
-        return response.data;
+        return await bertService.getTextEmbedding(text);
     },
 };

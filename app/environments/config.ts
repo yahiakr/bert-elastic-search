@@ -5,7 +5,7 @@ export const config = {
       "url": process.env.MONSTER_MONGO_DB_URI
     },
     "bert": {
-      "url": "http://0d26a4f4b06c.ngrok.io"
+      "url": "http://d26c2a99750a.ngrok.io"
     },
     "aws": {
       "aws_reigion": "",
