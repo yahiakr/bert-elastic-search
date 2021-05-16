@@ -28,6 +28,7 @@
     "@environments": "dist/environments"
   },
   "dependencies": {
+    "@elastic/elasticsearch": "^7.12.0",
     "@types/bcrypt": "^3.0.0",
     "@types/http-errors": "^1.8.0",
     "@types/joi": "^17.2.3",
