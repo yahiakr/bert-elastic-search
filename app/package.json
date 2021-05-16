@@ -48,6 +48,7 @@
     "joi": "^17.3.0",
     "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
+    "mongoosastic": "^4.6.0",
     "mongoose": "^5.10.2",
     "morgan": "^1.10.0",
     "reflect-metadata": "^0.1.13",
