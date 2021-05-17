@@ -6,8 +6,16 @@ import { textController } from '@controllers/texts.controller'
 
 module.exports = {
   permissions: "public",
-  validate: {},
-  handler: async ({ query, user }: Request) => {
-    return await textController.search();
+  validate: {
+    query: {
+      q: Joi.string().required()
+        .description("User query")
+        .error(Error(BAD_REQUEST, "USERS_QUERY_IS_REQUIRED"))
+    }
+  },
+  handler: async ({ query }: Request) => {
+    const { q } = query;
+
+    return await textController.search(q as String);
   },
 };
