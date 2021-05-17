@@ -1,3 +1,5 @@
 # bert-elastic-search
 
-![alt text](assets/architecture.png)
+<p align="center">
+  <img src="assets/architecture.png"/>
+</p>
