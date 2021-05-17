@@ -1,0 +1,5 @@
+{
+  "model": "bert-base-uncased",
+  "import_model": false,
+  "model_dir": "./model/pytorch_model.bin"
+}
