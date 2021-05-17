@@ -16,4 +16,4 @@ class BertService {
 
 }
   
-export const bertService = new BertService(config.bert.url);
+export const bertService = new BertService(config.bert.url!);

@@ -5,7 +5,7 @@ export const config = {
       "url": process.env.MONSTER_MONGO_DB_URI
     },
     "bert": {
-      "url": "http://c4c88632cbc3.ngrok.io"
+      "url": process.env.BERT_SERVICE_URI
     },
     "elastic": {
       "url": "http://localhost:9200"
