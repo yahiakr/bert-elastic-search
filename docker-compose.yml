@@ -1,0 +1,49 @@
+version: '3'
+services:
+  app:
+    build: ./app
+    container_name: bert-elastic-app
+    ports:
+      - "3000:3000"
+    networks:
+      - bert-network
+
+  bert:
+    build: ./bert-as-service
+    container_name: bert-as-service
+    ports:
+      - "5000:5000"
+    networks:
+      - bert-network
+  
+  mongoDb:
+    image: mongo
+    container_name: mongoDb
+    restart: always
+    volumes:
+      - ./data/db/mongo:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - bert-network
+
+  elasticsearch:
+    container_name: elastic
+    build: "./elasticsearch"
+    environment:
+      - node.name=es01
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      -  ./esdata:/usr/share/elasticsearch/data:rw
+    ports:
+      - "9200:9200"
+    networks:
+      - bert-network
+  
+networks:
+  bert-network:
+    driver: bridge
+
+#docker-compose -f docker-compose.yml down
+#docker-compose -f docker-compose.yml up -d --build
