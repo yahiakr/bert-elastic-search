@@ -3,7 +3,7 @@ FROM node:12
 COPY package.json ./
 COPY .env ./
 
-# RUN npm install
+RUN npm install
 
 COPY . /app
 WORKDIR /app
