@@ -20,9 +20,9 @@ The architecture is composed of the following components:
 An elasticsearch server to store & search data.
 
 ## BERT-as-service: 
-Exposing a pre-trained BERT model using a REST API with flask. The aim of this component is to get the embedding of a text. The service is implemented based on [Hugging Face library](https://huggingface.co/transformers/).
+Exposing a pre-trained BERT model using a REST API with Flask. The aim of this component is to get the embedding of a text. The service implementation is based on [Hugging Face library](https://huggingface.co/transformers/).
 
-The component is customizable. You can change the model to one of the following [pretrained models on Hugging Face](https://huggingface.co/transformers/pretrained_models.html). To acheive that, use the `config.json` file inside `/bert-as-service`:
+The component is customizable. You can change & use one of the following [pretrained models on Hugging Face](https://huggingface.co/transformers/pretrained_models.html). To acheive that, use the `config.json` file inside `/bert-as-service`:
 
 ```
 {
@@ -47,7 +47,7 @@ In order to run the app, you should add a `.env` file containing the following v
   ELASTIC_SEARCH_URI = <ELASTIC_URL>
 }
 ```
-You can either point to the containers, or you can use external services, e.g: you own elasticsearch instance, or BERT service running on Google Colab.
+You can either point to the containers, or you can use external services, e.g: your own elasticsearch instance, or a BERT service instance running on Google Colab.
 
 To run the application, simply use the `docker-compose` command:
 ```
