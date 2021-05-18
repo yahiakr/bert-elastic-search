@@ -16,17 +16,17 @@ The following schema present the global architecture and the interactions betwee
 
 The architecture is composed of the following components:
 
-### Elasticsearch: 
+## Elasticsearch: 
 An elasticsearch server to store & search data.
 
-### BERT-as-service: 
+## BERT-as-service: 
 Exposing a pre-trained BERT model using a REST API with flask. The aim of this component is to get the embedding of a text. The service is implemented based on [Hugging Face library](https://huggingface.co/transformers/).
 
 The component is customizable. You can change the model to one of the following [pretrained models on Hugging Face](https://huggingface.co/transformers/pretrained_models.html). To acheive that, use the `config.json` file inside `/bert-as-service`:
 
 ```
 {
-  # The pretrained model ID from the list above
+  # The pretrained model ID from the link above
   "model": "bert-base-uncased",
   "import_model": false,
   "model_dir": "./model/pytorch_model.bin"
@@ -37,5 +37,19 @@ In case you want to use your own, fine-tuned model, set `import_model` to `True`
 
 **Note:** You can start the BERT service from the notebook in `/notebooks`. Use Google Colab to import the model, & run the service. The server will be exposed publicly using [ngrok](https://ngrok.com/). -Just run all the cells ;)-.
 
-### App: 
+## App: 
 a simple NodeJs app, that has three routes: add a text, search for a text, and get the embeddings of a text.
+In order to run the app, you should add a `.env` file containing the following variables:
+```
+{
+  MONSTER_MONGO_DB_URI = <DB_URL>
+  BERT_SERVICE_URI = <BERT_URL>
+  ELASTIC_SEARCH_URI = <ELASTIC_URL>
+}
+```
+You can either point to the containers, or you can use external services, e.g: you own elasticsearch instance, or BERT service running on Google Colab.
+
+To run the application, simply use the `docker-compose` command:
+```
+docker-compose -f docker-compose.yml up -d --build
+```
