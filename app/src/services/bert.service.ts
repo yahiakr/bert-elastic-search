@@ -10,8 +10,8 @@ class BertService {
     }
 
     async getTextEmbedding(text: String) {
-        const response = await axios.post(`${config.bert.url}/embedding`, {context: text})
-        return response.data;
+      const response = await axios.post(`${config.bert.url}/embedding`, {context: text})
+      return response.data;
     }
 
 }

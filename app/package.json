@@ -4,7 +4,7 @@
   "scripts": {
     "build": "node build.js",
     "lint": "tslint --project \"tsconfig.json\"",
-    "start": "node -r module-alias/register ./dist/src",
+    "start": "ts-node -r tsconfig-paths/register ./src",
     "start:dev": "nodemon",
     "test": "jest --detectOpenHandles"
   },
