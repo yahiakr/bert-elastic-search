@@ -2,8 +2,8 @@ import { Request, Response, NextFunction } from 'express';
 import Joi, { Schema } from "joi";
 import fs from "fs";
 import asyncHandler from "express-async-handler";
-import { requireAuth } from "@middlewares/auth.middleware";
-import { checkAccess } from "@middlewares/checkAccess.middleware";
+// import { requireAuth } from "@middlewares/auth.middleware";
+// import { checkAccess } from "@middlewares/checkAccess.middleware";
 
 const express = require("express");
 const router = express.Router();
@@ -72,7 +72,7 @@ function generateRoutes(dir: string) {
                 const preMiddleware = controller.preMiddleware && Array.isArray(controller.preMiddleware) ? controller.preMiddleware : [];
                 
                 // if routes is not with public permission, needs to be protected
-                if (!permissions.includes("public")) preMiddleware.unshift(requireAuth, checkAccess(permissions));
+                // if (!permissions.includes("public")) preMiddleware.unshift(requireAuth, checkAccess(permissions));
 
                 const expressHandler = () => async (req: Request, res: Response) => {
                     const response = await handler(req);
