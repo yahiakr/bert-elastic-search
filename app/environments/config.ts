@@ -8,7 +8,7 @@ export const config = {
       "url": process.env.BERT_SERVICE_URI
     },
     "elastic": {
-      "url": "http://localhost:9200"
+      "url": process.env.ELASTIC_SEARCH_URI
     },
     "aws": {
       "aws_reigion": "",
