@@ -15,6 +15,8 @@ const app = express();
 
 // Init database ORM
 require('./database');
+// Start mapping
+require('@services/elasticsearch').mapping();
 
 // Set basic express settings
 app.use(express.json());

@@ -7,8 +7,8 @@ export interface IText extends Document{
 }
 
 const TextSchema: Schema = new Schema({
-    title: { type: String, required: true, es_type: "text" },
-    vector: { type: [{ type: Number }], required: true, es_type: "dense_vector" },
+    title: { type: String, required: true },
+    vector: { type: [{ type: Number }], required: true },
 });
 
 TextSchema.plugin(mongoosastic);

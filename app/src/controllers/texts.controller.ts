@@ -24,16 +24,18 @@ class TextController {
         index: 'texts',
         body: {
           query: {
-            script_score: {
-              query: { match_all: {} },
-              script: {
-                source: "cosineSimilarity(params.query_vector, 'vector') + 1.0",
-                params: { "query_vector": embedding.vector }
-              }
+            "elastiknn_nearest_neighbors": {
+              "field": "vector",
+              "vec": {
+                  "values": embedding.vector,             
+              },
+              "model": "exact",
+              "similarity": "angular",
             }
           }
         }
       })
+      // .catch((err: any) => { console.log(err.body.error) })
   
       return response.body;
     }
