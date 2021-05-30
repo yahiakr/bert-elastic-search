@@ -2,6 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/node,flask,jupyternotebooks,vscode
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,flask,jupyternotebooks,vscode
 
+# Data folders
+data/
+esdata/
+
 ### Flask ###
 instance/*
 !instance/.gitignore

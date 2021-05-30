@@ -89,3 +89,19 @@ export async function mapping() {
         });
     }
 }
+
+export async function synchronize() {
+    let stream = (Texts as any).synchronize();
+    let count = 0;
+    stream.on("data", async function (err: any, doc: any) {
+        console.info("index document with ES", count);
+        count++;
+    });
+    stream.on("close", function () {
+        console.info("number of legal texts indexed with ES is : ", count);
+    });
+    stream.on("error", function (err: any) {
+        console.warn("there been an error", err);
+    });
+    return "MAPPING_STARTED";
+}

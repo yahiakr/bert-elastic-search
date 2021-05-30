@@ -13,7 +13,7 @@ export interface IText extends Document{
 
 const TextSchema: Schema = new Schema({
     title: {
-        fr: { type: String, required: true }
+        fr: { type: String }
     },
     cleanContent: {
         fr: { type: String },
