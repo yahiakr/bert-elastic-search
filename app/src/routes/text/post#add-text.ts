@@ -10,16 +10,19 @@ module.exports = {
   validate: {
     body: {
         title: Joi.string().required()
-            .description("The title to get it's embedding")
-            .error(Error(BAD_REQUEST, "TITLE_IS_REQUIRED"))
+            .description("The title of the text")
+            .error(Error(BAD_REQUEST, "TITLE_IS_REQUIRED")),
+        cleanContent: Joi.string()
+            .description("The content of the text")
+            .error(Error(BAD_REQUEST, "CLEAN_CONTENT_MUST_BE_STRING"))
     }
   },
   handler: async ({ body }: Request) => {
-    const { title } = body;
+    const { title, cleanContent } = body;
 
     const embedding = await bertService.getTextEmbedding(title);
     const vector = embedding.vector;
 
-    return textController.Model.create({ title, vector });
+    return textController.Model.create({ title, vector, cleanContent });
   },
 };

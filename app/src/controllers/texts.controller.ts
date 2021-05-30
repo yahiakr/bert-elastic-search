@@ -27,7 +27,7 @@ class TextController {
             "elastiknn_nearest_neighbors": {
               "field": "vector",
               "vec": {
-                  "values": embedding.vector,             
+                  "values": embedding.vector,
               },
               "model": "exact",
               "similarity": "angular",

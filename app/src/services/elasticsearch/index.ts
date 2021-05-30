@@ -44,13 +44,17 @@ export async function mapping() {
             "mappings": {
                 "properties": {
                     "title": {
-                        "type": "text",
-                        "fields": {
-                            "keyword": {
-                                "type": "keyword",
-                                "ignore_above": 256
+                        "properties": {
+                            "fr": {
+                                "type": "text",
+                                "fields": {
+                                    "keyword": {
+                                        "type": "keyword",
+                                        "ignore_above": 256
+                                    }
+                                }
                             }
-                        }
+                        },
                     },
                     "vector": {
                         "type": "elastiknn_dense_float_vector",
@@ -60,7 +64,20 @@ export async function mapping() {
                             // "similarity": "angular",
                             // "k": 10,
                         }
-                    }
+                    },
+                    "cleanContent": {
+                        "properties": {
+                            "fr": {
+                                "type": "text",
+                                "fields": {
+                                    "keyword": {
+                                        "type": "keyword",
+                                        "ignore_above": 256
+                                    }
+                                }
+                            }
+                        },
+                    },
                 }
             }
         }, function (err: any, mapping: any) {

@@ -2,12 +2,22 @@ import mongoose, { Schema, Document } from 'mongoose';
 const mongoosastic = require('mongoosastic');
 
 export interface IText extends Document{
-    title: string;
+    title: {
+        fr: string;
+    };
+    cleanContent: {
+        fr: string;
+    };
     vector: Array<number>;
 }
 
 const TextSchema: Schema = new Schema({
-    title: { type: String, required: true },
+    title: {
+        fr: { type: String, required: true }
+    },
+    cleanContent: {
+        fr: { type: String },
+    },
     vector: { type: [{ type: Number }], required: true },
 });
 
