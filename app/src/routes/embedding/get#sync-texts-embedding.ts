@@ -18,7 +18,7 @@ module.exports = {
     for (const doc of data) {
       console.info(`Generating document: ${count} embedding!`);
       console.info(`title: ${doc.title.fr}`);
-      // await sleep(2000);
+      
       let embedding = await bertService.getTextEmbedding(doc.title.fr);
       if(!doc.vector.length){
         doc.vector = embedding.vector;
@@ -29,7 +29,3 @@ module.exports = {
 
   },
 };
-
-function sleep(ms: any) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}

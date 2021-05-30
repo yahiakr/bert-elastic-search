@@ -31,11 +31,9 @@ services:
     container_name: elastic
     build: "./elasticsearch"
     environment:
-      - node.name=es01
       - discovery.type=single-node
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     volumes:
-      -  ./esdata:/usr/share/elasticsearch/data:rw
+      -  ./esdata:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
     networks:
